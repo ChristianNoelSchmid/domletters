@@ -5,12 +5,12 @@
 
 #[cfg(test)]
 mod tests {
-    use rand::{RngCore, thread_rng};
     use domletters::dom_letters;
+    use rand::{thread_rng, RngCore};
 
     /// The value for ASCII character `a`
     const ASCII_LETTER_MIN: u8 = 97;
-    
+
     /// Tests a series of `100` strings, each of which should have
     /// a `dom_letter` value of `100`.
     #[test]
@@ -19,7 +19,7 @@ mod tests {
             let chars = gen_random_string();
             assert_eq!(dom_letters(chars), 100);
         }
-    }  
+    }
 
     /// Tests a collection `100` random words
     /// which should have a `dom_letters` value of `10,000`
@@ -35,7 +35,7 @@ mod tests {
         }
 
         assert_eq!(dom_letters(para), 100 * 100);
-    } 
+    }
 
     /// Generates a random string of 100 characters `b-z`. Then
     /// randomly inserts `a` 100 times into the char collection.

@@ -32,6 +32,8 @@ upper and lowercase letters as equivalent. Examples:
 To build the program, type `make`. This will use the file
 named `Makefile` to compile the program.
 
+**Note**: building this file will install the Rust compiler (if not already installed).
+
 To run the program once it is built, say
 
     ./domletters <input.txt

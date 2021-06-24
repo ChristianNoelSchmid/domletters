@@ -15,8 +15,9 @@ const ASCII_LETTER_MIN: usize = 97;
 /// ```
 /// use domletters::dom_letters;
 ///
-/// let mut sentence = String::from("'Night, night!' said the knight ");
-/// sentence.push_str("to the knight one night.");
+/// let mut sentence = 
+///     "'Night, night!' said the knight to the knight one night."
+///     .to_string();
 ///
 /// let count = dom_letters(sentence);
 /// assert_eq!(count, 7); // Each alpha word has a DWC of 1. 7 total.
@@ -34,7 +35,7 @@ pub fn dom_letters(words: String) -> u32 {
     let words = words.to_lowercase();
     let words = words.split_ascii_whitespace().filter(|w| re.is_match(*w));
 
-    // For each word, count each letter, and return the count of the letter 
+    // For each word, count each letter, and return the count of the letter
     // which shows up most often (or the count of the ones tied for most).
     for word in words {
         letter_counts = [0; 26];
@@ -43,6 +44,6 @@ pub fn dom_letters(words: String) -> u32 {
         }
         running_count += letter_counts.iter().max().unwrap();
     }
-    
+
     running_count
 }
